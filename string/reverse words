@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        string res = "";
+        stack<string> l;
+        string curr = "";
+        
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == ' ') {
+                if (!curr.empty()) {
+                    l.push(curr); // Push the current word onto the stack
+                    curr = "";    // Reset the current word
+                }
+            } else {
+                curr += s[i]; // Build the current word
+            }
+        }
+
+        if (!curr.empty()) {
+            l.push(curr); // Push the last word onto the stack
+        }
+        
+        while (!l.empty()) {
+            res += l.top(); // Get the top word from the stack
+            l.pop(); // Remove the top word from the stack
+            if (!l.empty()) {
+                res += ' '; // Add a space between words, but not after the last word
+            }
+        }
+
+        return res;
+    }
+};
