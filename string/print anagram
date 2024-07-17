@@ -1,0 +1,6 @@
+or(auto temp : mp){
+            vector<string> ans = temp.second;
+            result.push_back(ans);
+        }
+        return result;
+    }
